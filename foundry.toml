@@ -1,0 +1,23 @@
+[profile.default]
+src = "contracts"
+test = "test"
+script = "script"
+out = "out"
+libs = ["lib"]
+solc = "0.8.28"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+#via_ir = true
+# Deterministic bytecode settings for CREATE2 deployments
+# Only needed for contracts that require deterministic addresses
+bytecode_hash = "none"
+cbor_metadata = false
+# Use CREATE2 factory for contracts deployed with {salt: salt} syntax
+# This only affects deployments that explicitly use the salt syntax
+always_use_create_2_factory = true
+
+# First-party contracts use intentional lower camelCase "dre..." names (see docs/STYLE.md).
+[lint]
+exclude_lints = ["erc20-unchecked-transfer", "mixed-case-variable", "screaming-snake-case-immutable", "mixed-case-function"]
+mixed_case_exceptions = ["ERC", "URI", "dre"]
